@@ -67,11 +67,18 @@ p {
 }
 
 img.main-image {
-    max-width: 100%;
+    display: block; 
+    max-width: 70%; 
     height: auto;
+    margin: 30px auto; 
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    margin: 20px 0;
+}
+
+.audio-player {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* Estilos para a página de Relatos */
@@ -110,6 +117,7 @@ img.main-image {
 
 input[type="text"],
 input[type="email"],
+input[type="date"],
 textarea {
     width: 100%;
     padding: 12px;
@@ -169,6 +177,22 @@ button:hover {
     margin-bottom: 10px;
 }
 
+.leitura-btn {
+    display: inline-block;
+    background-color: #27ae60;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.leitura-btn:hover {
+    background-color: #229954;
+}
+
 /* Rodapé */
 footer {
     text-align: center;
@@ -181,31 +205,34 @@ footer {
 
 
 /* --- Media Queries para Responsividade --- */
-/* Para tablets e telemóveis (ecrãs até 768px de largura) */
 @media (max-width: 768px) {
     body {
-        font-size: 16px; /* Ligeira redução do tamanho da fonte base */
+        font-size: 16px;
     }
 
     header h1 {
-        font-size: 2.2em; /* Reduz o tamanho do título principal */
+        font-size: 2.2em;
     }
 
     h2 {
-        font-size: 1.8em; /* Reduz o tamanho dos subtítulos */
+        font-size: 1.8em;
     }
 
     nav a {
-        display: block; /* Faz com que cada link do menu ocupe uma linha inteira */
-        margin: 10px 0; /* Adiciona espaçamento vertical entre os links */
+        display: block;
+        margin: 10px 0;
         padding: 5px;
     }
 
     .container {
-        padding: 15px; /* Reduz o espaçamento lateral para dar mais espaço ao conteúdo */
+        padding: 15px;
     }
 
     .form-container, .quiz-container {
-        padding: 20px; /* Ajusta o padding dos formulários */
+        padding: 20px;
+    }
+    
+    img.main-image {
+        max-width: 90%;
     }
 }
