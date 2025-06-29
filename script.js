@@ -11,73 +11,33 @@ const respostasEncantadoras = [
   "Foste um guardião de conhecimento na biblioteca de Alexandria."
 ];
 
-document.getElementById("questionnaire-form").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const nome = document.getElementById("nome").value.trim();
-  const idade = parseInt(document.getElementById("idade").value.trim());
-  const email = document.getElementById("email").value.trim();
-
-  if (!nome || !idade || !email) {
-    alert("Por favor, preenche todos os campos.");
-    return;
-  }
-
-  const indice = (nome.length + idade) % respostasEncantadoras.length;
-  const resposta = respostasEncantadoras[indice];
-
-  document.getElementById("mensagem").textContent = resposta;
-  document.getElementById("resultado").style.display = "block";
-
-  // Scroll suave até ao resultado
-  document.getElementById("resultado").scrollIntoView({ behavior: "smooth" });
-});
-// Espera que todo o conteúdo da página HTML seja carregado antes de executar o script
 document.addEventListener('DOMContentLoaded', function() {
-
-    // Encontra o formulário do quiz no documento
     const quizForm = document.getElementById('quizForm');
 
-    // Verifica se o formulário do quiz existe na página atual para evitar erros
     if (quizForm) {
-        
-        // Adiciona um "ouvinte" para o evento de submissão do formulário
         quizForm.addEventListener('submit', function(event) {
-            // Previne o comportamento padrão do formulário (que seria recarregar a página)
             event.preventDefault();
 
-            // Objeto para armazenar as pontuações de cada arquétipo
             const scores = {
                 erudito: 0,
                 naturalista: 0,
                 explorador: 0,
-                curador: 0
+                curador: 0,
+                artista: 0
             };
 
-            // Recolhe as respostas do formulário
-            const q1 = quizForm.querySelector('input[name="q1"]:checked').value;
-            const q2 = quizForm.querySelector('input[name="q2"]:checked').value;
-            const q3 = quizForm.querySelector('input[name="q3"]:checked').value;
+            const numberOfQuestions = 5;
+            for (let i = 1; i <= numberOfQuestions; i++) {
+                const questionName = 'q' + i;
+                const selectedOption = quizForm.querySelector(`input[name="${questionName}"]:checked`);
+                if (selectedOption) {
+                    const value = selectedOption.value;
+                    if (scores.hasOwnProperty(value)) {
+                        scores[value]++;
+                    }
+                }
+            }
 
-            // Atribui pontos com base na resposta da questão 1
-            if (q1 === 'a') scores.erudito++;
-            else if (q1 === 'b') scores.naturalista++;
-            else if (q1 === 'c') scores.explorador++;
-            else if (q1 === 'd') scores.curador++;
-
-            // Atribui pontos com base na resposta da questão 2
-            if (q2 === 'a') scores.erudito++;
-            else if (q2 === 'b') scores.naturalista++;
-            else if (q2 === 'c') scores.explorador++;
-            else if (q2 === 'd') scores.curador++;
-            
-            // Atribui pontos com base na resposta da questão 3
-            if (q3 === 'a') scores.erudito++;
-            else if (q3 === 'b') scores.naturalista++;
-            else if (q3 === 'c') scores.explorador++;
-            else if (q3 === 'd') scores.curador++;
-
-            // Encontra o arquétipo com a maior pontuação
             let maxScore = 0;
             let resultType = '';
             for (const type in scores) {
@@ -87,35 +47,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Define os textos dos resultados
             const resultados = {
                 erudito: {
-                    titulo: "O Eco do Erudito",
-                    texto: "A sua alma ressoa com o conhecimento, a lógica e o estudo. Em vidas passadas, pode ter sido um filósofo, escriba, cientista ou um guardião de bibliotecas antigas, sempre em busca da verdade através da palavra escrita e do pensamento."
+                    titulo: "O Eco do Erudito: A Alma Guardiã do Conhecimento",
+                    texto: "A sua alma ressoa com o peso silencioso do conhecimento. Numa vida passada, é muito provável que tenha sido uma figura dedicada ao estudo e à preservação da sabedoria. Imagine-se como um escriba numa biblioteca antiga como a de Alexandria, um filósofo a debater sob o sol grego, ou um monge a copiar manuscritos à luz de velas num mosteiro isolado. A sua vida era definida pela busca da verdade, não no mundo exterior, mas nos registos do passado. O seu maior desafio era a frustração de ver o conhecimento ser perdido ou ignorado, e a sua maior lição foi a de que a sabedoria sem partilha é uma chama sem oxigénio. Hoje, talvez sinta um amor profundo por livros, uma sede insaciável por aprender e uma paciência para resolver problemas complexos. A sua alma anseia por ordem, lógica e pelo silêncio que permite o pensamento profundo."
                 },
                 naturalista: {
-                    titulo: "O Eco do Naturalista",
-                    texto: "A sua alma tem uma ligação profunda com a terra e as suas criaturas. Pode ter vivido como um caçador, um druida, um eremita ou alguém que compreendia os segredos das florestas e montanhas, vivendo em harmonia com os ciclos da natureza."
+                    titulo: "O Eco do Naturalista: A Alma Sintonizada com a Terra",
+                    texto: "A sua alma está profundamente entrelaçada com os ritmos do mundo natural. Numa vida anterior, você não via a natureza como algo a ser conquistado, mas como uma extensão de si mesmo. Poderá ter sido um druida nos bosques da antiga Europa, um xamã nas planícies da América, ou simplesmente um eremita que conhecia cada árvore e cada animal pelo nome. A sua vida era guiada pelas estações, pela lua e pelas estrelas. O seu conhecimento não vinha de livros, mas da observação silenciosa e de uma conexão espiritual com a terra. O seu desafio era assistir ao avanço de civilizações que não respeitavam esse equilíbrio, e a sua lição foi a resiliência e a compreensão de que a vida sempre encontra uma forma de se renovar. Hoje, pode sentir-se mais em casa numa floresta do que numa cidade, ter uma forte intuição e uma capacidade inata para cuidar de plantas e animais."
                 },
                 explorador: {
-                    titulo: "O Eco do Explorador",
-                    texto: "A sua alma anseia pelo desconhecido e pela aventura. É provável que tenha sido um navegador, um cartógrafo, um mercador em rotas distantes ou um pioneiro, sempre a olhar para o horizonte em busca de novos mundos e novas experiências."
+                    titulo: "O Eco do Explorador: A Alma Impulsionada pelo Horizonte",
+                    texto: "A sua alma é uma bússola que aponta sempre para o desconhecido. O conforto da rotina nunca foi suficiente para si. Numa vida passada, o seu coração batia ao ritmo das ondas do oceano ou da poeira de uma nova estrada. Imagine-se como um navegador fenício a traçar rotas pelo Mediterrâneo, um membro de uma caravana na Rota da Seda, ou um pioneiro a mapear territórios inexplorados. A sua vida era uma coleção de despedidas e de primeiras vistas. O seu maior desafio era o medo do desconhecido e a solidão das longas jornadas, mas a sua maior lição foi a de que o lar não é um lugar, mas um sentimento de propósito. Hoje, sente um desejo inquieto de viajar, uma aversão à monotonia e uma curiosidade que o leva a experimentar sempre coisas novas. A sua alma acredita que a maior sabedoria se encontra no caminho, não no destino."
                 },
                 curador: {
-                    titulo: "O Eco do Curador",
-                    texto: "A sua alma vibra com a empatia, o cuidado e a comunidade. Em vidas passadas, pode ter sido um curandeiro, uma parteira, um líder comunitário ou um artista que trazia conforto e união ao seu povo através da compaixão e da sabedoria."
+                    titulo: "O Eco do Curador: A Alma que Tece a Comunidade",
+                    texto: "A sua alma encontra o seu propósito na ligação com os outros. O seu foco nunca foi o 'eu', mas o 'nós'. Numa vida passada, você era o pilar da sua comunidade. Talvez tenha sido um curandeiro numa aldeia, usando o conhecimento das ervas para aliviar o sofrimento, uma parteira que trazia novas vidas ao mundo, ou um líder tribal que mantinha a paz e a harmonia. A sua vida era dedicada a servir, a ouvir e a cuidar. O seu maior desafio era absorver a dor dos outros sem se quebrar, e a sua lição mais profunda foi a de que a verdadeira força reside na vulnerabilidade e na compaixão. Hoje, as pessoas provavelmente confiam em si naturalmente, procura profissões de ajuda e sente uma profunda satisfação em ver os outros felizes e seguros. A sua alma compreende que estamos todos ligados."
+                },
+                artista: {
+                    titulo: "O Eco do Artista: A Alma que Traduz o Invisível",
+                    texto: "A sua alma tem a rara capacidade de ver a beleza e o significado onde outros veem o caos. Você vive para traduzir as emoções e as verdades universais em algo tangível. Numa vida passada, poderá ter sido um pintor de frescos numa capela renascentista, um contador de histórias à volta de uma fogueira, um músico cuja melodia fazia chorar os reis, ou um ator grego por trás de uma máscara trágica. A sua vida não era sobre sobreviver, mas sobre sentir intensamente e expressar essa intensidade. O seu maior desafio era a luta entre a sua visão e a incompreensão do mundo, e a sua maior lição foi a de que a arte é uma necessidade, não um luxo. Hoje, sente o mundo de forma mais profunda que os outros, tem uma imaginação vívida e uma necessidade intrínseca de criar, seja através da pintura, da música, da escrita ou de qualquer outra forma de expressão."
                 }
             };
 
-            // Mostra o resultado na página
             const resultadoDiv = document.getElementById('quiz-resultado');
             const resultadoTitulo = document.getElementById('resultado-titulo');
             const resultadoTexto = document.getElementById('resultado-texto');
 
-            resultadoTitulo.textContent = resultados[resultType].titulo;
-            resultadoTexto.textContent = resultados[resultType].texto;
+            if (resultados[resultType]) {
+                resultadoTitulo.textContent = resultados[resultType].titulo;
+                resultadoTexto.textContent = resultados[resultType].texto;
+            }
             
-            resultadoDiv.style.display = 'block'; // Torna a div do resultado visível
+            resultadoDiv.style.display = 'block';
+            resultadoDiv.scrollIntoView({ behavior: 'smooth' });
         });
     }
 });
