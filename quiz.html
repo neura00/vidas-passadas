@@ -23,10 +23,21 @@
     <main>
         <div class="container">
             <h2>Quiz: Qual o Eco da Sua Alma?</h2>
-            <p>Este não é um teste científico, mas um exercício lúdico de introspeção. Responda às perguntas abaixo e mergulhe numa possível memória da sua alma.</p>
+            <p>Este não é um teste científico, mas um exercício lúdico de introspeção. Preencha os seus dados, responda às perguntas e mergulhe numa possível memória da sua alma.</p>
 
             <div class="quiz-container">
                 <form id="quizForm">
+                    
+                    <div class="form-group">
+                        <label for="nome">O seu nome:</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Escreva o seu primeiro nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nascimento">A sua data de nascimento:</label>
+                        <input type="date" id="nascimento" name="nascimento" required>
+                    </div>
+
                     <div class="quiz-question">
                         <p>1. Que tipo de paisagem mais o atrai?</p>
                         <div class="quiz-options">
@@ -38,7 +49,7 @@
                         </div>
                     </div>
 
-                    <div class="quiz-question">
+                     <div class="quiz-question">
                         <p>2. Se pudesse escolher uma ferramenta, qual seria?</p>
                         <div class="quiz-options">
                             <label><input type="radio" name="q2" value="erudito" required> Uma pena e um tinteiro.</label>
@@ -88,6 +99,8 @@
                 <div id="quiz-resultado">
                     <h3 id="resultado-titulo"></h3>
                     <p id="resultado-texto"></p>
+
+                    <a href="contacto.html" class="leitura-btn">Quero receber uma leitura completa</a>
                 </div>
             </div>
         </div>
