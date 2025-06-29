@@ -81,7 +81,7 @@ img.main-image {
     margin-bottom: 20px;
 }
 
-/* Estilos para a página de Relatos */
+/* --- ESTILOS MODIFICADOS E ADICIONADOS PARA OS RELATOS --- */
 .relato-card {
     background-color: #ffffff;
     border-left: 5px solid #c0392b;
@@ -89,6 +89,17 @@ img.main-image {
     margin-bottom: 30px;
     border-radius: 0 8px 8px 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;       /* Adicionado para alinhar imagem e texto */
+    align-items: center; /* Adicionado para centrar verticalmente */
+    gap: 25px;           /* Adicionado para criar espaço entre imagem e texto */
+}
+
+.relato-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Isto cria o círculo */
+    object-fit: cover;  /* Garante que a imagem não fica distorcida */
+    flex-shrink: 0;     /* Impede que a imagem encolha */
 }
 
 .relato-card h3 {
@@ -96,6 +107,8 @@ img.main-image {
     color: #2c3e50;
     margin-bottom: 10px;
 }
+/* --- FIM DAS ALTERAÇÕES PARA OS RELATOS --- */
+
 
 /* Estilos para o Quiz e Formulário de Contacto */
 .form-container, .quiz-container {
@@ -232,6 +245,13 @@ footer {
         padding: 20px;
     }
     
+    /* Regra de responsividade adicionada para os relatos */
+    .relato-card {
+        flex-direction: column; /* Coloca a imagem em cima do texto em ecrãs pequenos */
+        text-align: center;
+        gap: 15px;
+    }
+
     img.main-image {
         max-width: 90%;
     }
