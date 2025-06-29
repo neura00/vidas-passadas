@@ -151,6 +151,7 @@ button:hover {
 .quiz-options label {
     display: block;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 #quiz-resultado {
@@ -168,7 +169,6 @@ button:hover {
     margin-bottom: 10px;
 }
 
-
 /* Rodapé */
 footer {
     text-align: center;
@@ -177,4 +177,35 @@ footer {
     background-color: #2c3e50;
     color: #ecf0f1;
     font-size: 14px;
+}
+
+
+/* --- Media Queries para Responsividade --- */
+/* Para tablets e telemóveis (ecrãs até 768px de largura) */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Ligeira redução do tamanho da fonte base */
+    }
+
+    header h1 {
+        font-size: 2.2em; /* Reduz o tamanho do título principal */
+    }
+
+    h2 {
+        font-size: 1.8em; /* Reduz o tamanho dos subtítulos */
+    }
+
+    nav a {
+        display: block; /* Faz com que cada link do menu ocupe uma linha inteira */
+        margin: 10px 0; /* Adiciona espaçamento vertical entre os links */
+        padding: 5px;
+    }
+
+    .container {
+        padding: 15px; /* Reduz o espaçamento lateral para dar mais espaço ao conteúdo */
+    }
+
+    .form-container, .quiz-container {
+        padding: 20px; /* Ajusta o padding dos formulários */
+    }
 }
