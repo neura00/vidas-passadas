@@ -1,19 +1,44 @@
-const respostasEncantadoras = [
-  "Foste uma sacerdotisa sábia da Atlântida.",
-  "Viveste como guerreiro romano destemido.",
-  "Foste um curandeiro nas florestas da Gália.",
-  "Foste um astrónomo egípcio que lia as estrelas.",
-  "Viveste como poeta num templo tibetano.",
-  "Foste um navegador perdido em mares místicos.",
-  "Viveste em silêncio num mosteiro medieval.",
-  "Foste uma inventora revolucionária no século XIX.",
-  "Foste uma alma livre numa tribo nómada do deserto.",
-  "Foste um guardião de conhecimento na biblioteca de Alexandria."
-];
-
 document.addEventListener('DOMContentLoaded', function() {
-    const quizForm = document.getElementById('quizForm');
+    
+    // --- LÓGICA DA PLAYLIST DE MÚSICA ---
+    const player = document.getElementById('audio-player');
+    
+    if (player) {
+        const source = player.getElementsByTagName('source')[0];
 
+        // IMPORTANTE: EDITE ESTA LISTA COM OS NOMES DOS SEUS FICHEIROS DE MÚSICA
+        const playlist = [
+            'musica/musica-ambiente.mp3',
+            // Adicione aqui as suas outras músicas. Exemplos:
+            // 'musica/lost-in-the-mystic-forest.mp3',
+            // 'musica/enchanted-garden.mp3'
+        ];
+
+        let musicaAtual = 0;
+
+        // Define a primeira música no player ao carregar a página
+        if (playlist.length > 0) {
+            source.src = playlist[musicaAtual];
+            player.load();
+        }
+
+        // Quando a música atual termina, toca a próxima
+        player.addEventListener('ended', function() {
+            musicaAtual++;
+            if (musicaAtual >= playlist.length) {
+                musicaAtual = 0; // Volta ao início da playlist
+            }
+            
+            source.src = playlist[musicaAtual];
+            player.load();
+            player.play();
+        });
+    }
+    // --- FIM DA LÓGICA DA PLAYLIST ---
+
+
+    // --- LÓGICA DO QUIZ ---
+    const quizForm = document.getElementById('quizForm');
     if (quizForm) {
         quizForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -83,58 +108,5 @@ document.addEventListener('DOMContentLoaded', function() {
             resultadoDiv.scrollIntoView({ behavior: 'smooth' });
         });
     }
-});
-// --- LÓGICA DA PLAYLIST DE MÚSICA ---
-
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Encontra o leitor de áudio e a sua fonte no HTML
-    const player = document.getElementById('audio-player');
-    
-    // Se o player não existir na página, não faz nada
-    if (!player) {
-        return;
-    }
-    const source = player.getElementsByTagName('source')[0];
-
-    // CRIE AQUI A SUA LISTA DE MÚSICAS
-    // Coloque os nomes exatos dos seus ficheiros de música
-    const playlist = [
-        'musica/musica-ambiente.mp3',
-        'musica/outra-musica-mistica.mp3', // Substitua com os seus nomes de ficheiro
-        'musica/terceira-musica.mp3'      // Adicione quantas quiser
-    ];
-
-    let musicaAtual = 0; // Começa com a primeira música da lista
-
-    // Define a primeira música no player
-    source.src = playlist[musicaAtual];
-    player.load(); // Carrega a música
-
-    // Adiciona um "ouvinte" que é ativado QUANDO A MÚSICA TERMINA
-    player.addEventListener('ended', function() {
-        // Passa para a próxima música na lista
-        musicaAtual++;
-        
-        // Se chegar ao fim da lista, volta para o início
-        if (musicaAtual >= playlist.length) {
-            musicaAtual = 0;
-        }
-        
-        // Atualiza a fonte do player com a nova música
-        source.src = playlist[musicaAtual];
-        
-        // Carrega e toca a nova música automaticamente
-        player.load();
-        player.play();
-    });
-
-    // --- FIM DA LÓGICA DA PLAYLIST ---
-
-
-    // A sua lógica do quiz começa aqui...
-    const quizForm = document.getElementById('quizForm');
-    if (quizForm) {
-        // ... (o resto do seu script.js continua igual)
-    }
+     // --- FIM DA LÓGICA DO QUIZ ---
 });
