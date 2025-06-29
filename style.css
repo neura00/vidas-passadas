@@ -66,6 +66,16 @@ p {
     margin-bottom: 15px;
 }
 
+.imagem-artigo {
+    width: 250px;
+    height: auto;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
 img.main-image {
     display: block; 
     max-width: 60%; 
@@ -81,7 +91,7 @@ img.main-image {
     margin-bottom: 20px;
 }
 
-/* --- ESTILOS MODIFICADOS E ADICIONADOS PARA OS RELATOS --- */
+/* Estilos para a página de Relatos */
 .relato-card {
     background-color: #ffffff;
     border-left: 5px solid #c0392b;
@@ -89,17 +99,17 @@ img.main-image {
     margin-bottom: 30px;
     border-radius: 0 8px 8px 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    display: flex;       /* Adicionado para alinhar imagem e texto */
-    align-items: center; /* Adicionado para centrar verticalmente */
-    gap: 25px;           /* Adicionado para criar espaço entre imagem e texto */
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 .relato-img {
     width: 80px;
     height: 80px;
-    border-radius: 50%; /* Isto cria o círculo */
-    object-fit: cover;  /* Garante que a imagem não fica distorcida */
-    flex-shrink: 0;     /* Impede que a imagem encolha */
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 .relato-card h3 {
@@ -107,8 +117,6 @@ img.main-image {
     color: #2c3e50;
     margin-bottom: 10px;
 }
-/* --- FIM DAS ALTERAÇÕES PARA OS RELATOS --- */
-
 
 /* Estilos para o Quiz e Formulário de Contacto */
 .form-container, .quiz-container {
@@ -181,7 +189,7 @@ button:hover {
     background-color: #eaf3f5;
     border-left: 5px solid #3498db;
     border-radius: 5px;
-    display: none; /* Escondido por defeito */
+    display: none;
 }
 
 #quiz-resultado h3 {
@@ -206,6 +214,34 @@ button:hover {
     background-color: #229954;
 }
 
+.cta-section {
+    text-align: center;
+    margin: 50px 0;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #c0392b;
+    color: #ffffff;
+    padding: 15px 35px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    background-color: #a53125;
+    transform: scale(1.05);
+}
+
 /* Rodapé */
 footer {
     text-align: center;
@@ -215,7 +251,6 @@ footer {
     color: #ecf0f1;
     font-size: 14px;
 }
-
 
 /* --- Media Queries para Responsividade --- */
 @media (max-width: 768px) {
@@ -245,9 +280,16 @@ footer {
         padding: 20px;
     }
     
-    /* Regra de responsividade adicionada para os relatos */
+    .imagem-artigo {
+        float: none;
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+    
     .relato-card {
-        flex-direction: column; /* Coloca a imagem em cima do texto em ecrãs pequenos */
+        flex-direction: column;
         text-align: center;
         gap: 15px;
     }
