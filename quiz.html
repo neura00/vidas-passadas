@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz da Alma - Vidas Passadas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Vidas Passadas</h1>
+        <p style="font-style: italic;">Uma Viagem pela Alma</p>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="sobre.html">O Que São?</a>
+            <a href="relatos.html">Relatos</a>
+            <a href="quiz.html" class="active">Quiz</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Quiz: Qual o Eco da Sua Alma?</h2>
+            <p>Este não é um teste científico, mas um exercício lúdico de introspeção. Responda às perguntas abaixo e veja qual arquétipo ressoa mais consigo.</p>
+
+            <div class="quiz-container">
+                <form id="quizForm">
+                    <div class="quiz-question">
+                        <p>1. Que tipo de paisagem mais o atrai?</p>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q1" value="a" required> Vastas bibliotecas antigas e cidades de pedra.</label>
+                            <label><input type="radio" name="q1" value="b"> Florestas densas, montanhas selvagens e rios.</label>
+                            <label><input type="radio" name="q1" value="c"> O mar aberto, costas rochosas e portos movimentados.</label>
+                            <label><input type="radio" name="q1" value="d"> Campos férteis, mercados vibrantes e pequenas aldeias.</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p>2. Se pudesse escolher uma ferramenta, qual seria?</p>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q2" value="a" required> Uma pena e um tinteiro.</label>
+                            <label><input type="radio" name="q2" value="b"> Um arco e flecha ou um cajado de madeira.</label>
+                            <label><input type="radio" name="q2" value="c"> Um astrolábio e um mapa das estrelas.</label>
+                            <label><input type="radio" name="q2" value="d"> Ervas medicinais e um almofariz.</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p>3. Que som lhe traz mais conforto?</p>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q3" value="a" required> O virar de páginas de um livro antigo em silêncio.</label>
+                            <label><input type="radio" name="q3" value="b"> O som do vento a passar pelas árvores.</label>
+                            <label><input type="radio" name="q3" value="c"> O som das ondas do mar e gaivotas distantes.</label>
+                            <label><input type="radio" name="q3" value="d"> O som de uma comunidade a trabalhar e a rir.</label>
+                        </div>
+                    </div>
+
+                    <button type="submit">Revelar o Eco da Minha Alma</button>
+                </form>
+
+                <div id="quiz-resultado">
+                    <h3 id="resultado-titulo"></h3>
+                    <p id="resultado-texto"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vidas Passadas. Todos os direitos reservados.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
