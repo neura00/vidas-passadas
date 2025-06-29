@@ -39,7 +39,7 @@ header h1 {
 
 nav a {
     color: #ecf0f1;
-    margin: 0 20px;
+    margin: 0 15px; /* Reduzido para caber o novo link */
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
@@ -242,6 +242,54 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* Estilos para a página "Sobre Nós" */
+.intro-sobrenos {
+    font-size: 1.1em;
+    text-align: center;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.perfis-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.perfil-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex-basis: 45%;
+    min-width: 300px;
+    text-align: center;
+}
+
+.perfil-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #e0e0e0;
+}
+
+.perfil-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #2c3e50;
+}
+
+.perfil-card h4 {
+    font-style: italic;
+    color: #c0392b;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
 /* Rodapé */
 footer {
     text-align: center;
@@ -257,7 +305,9 @@ footer {
     body {
         font-size: 16px;
     }
-
+    nav a {
+        margin: 0 10px; /* Espaçamento menor no mobile */
+    }
     header h1 {
         font-size: 2.2em;
     }
@@ -292,6 +342,11 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: 15px;
+    }
+
+    .perfis-container {
+        flex-direction: column;
+        align-items: center;
     }
 
     img.main-image {
