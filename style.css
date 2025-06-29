@@ -1,0 +1,180 @@
+/* Importar fontes do Google Fonts para um look mais elegante */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* Reset básico e configuração geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background-color: #f4f0e8; /* Cor de pergaminho */
+    color: #3d3b3b;
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cabeçalho e Navegação */
+header {
+    background-color: #2c3e50; /* Azul escuro, misterioso */
+    color: #ecf0f1;
+    padding: 25px 0;
+    text-align: center;
+    border-bottom: 4px solid #c0392b; /* Um toque de vermelho escuro */
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+nav a {
+    color: #ecf0f1;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: #e74c3c; /* Cor de destaque ao passar o rato ou na página ativa */
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 40px 0;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+img.main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin: 20px 0;
+}
+
+/* Estilos para a página de Relatos */
+.relato-card {
+    background-color: #ffffff;
+    border-left: 5px solid #c0392b;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.relato-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Estilos para o Quiz e Formulário de Contacto */
+.form-container, .quiz-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: 'Lora', serif;
+    font-size: 16px;
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+button {
+    background-color: #c0392b;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #a53125;
+}
+
+/* Estilos específicos do Quiz */
+.quiz-question {
+    margin-bottom: 25px;
+}
+.quiz-question p {
+    font-weight: 600;
+}
+
+.quiz-options label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#quiz-resultado {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #eaf3f5;
+    border-left: 5px solid #3498db;
+    border-radius: 5px;
+    display: none; /* Escondido por defeito */
+}
+
+#quiz-resultado h3 {
+    font-family: 'Playfair Display', serif;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    font-size: 14px;
+}
